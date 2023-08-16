@@ -31,7 +31,7 @@ public class EmpleadoDAO
                 empleado.setId(resultSet.getInt("IdEmpleado"));
                 empleado.setUsuario(resultSet.getString("User"));
                 empleado.setDni(resultSet.getString("Dni"));
-                empleado.setNombre(resultSet.getString("Nombre"));
+                empleado.setNombre(resultSet.getString("Nombres"));
             }
         }
         catch (Exception e)

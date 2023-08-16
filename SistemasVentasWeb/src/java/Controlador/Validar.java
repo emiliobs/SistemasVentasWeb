@@ -53,14 +53,16 @@ public class Validar extends HttpServlet
         if (accion.equalsIgnoreCase("Ingresar"))
         {
             String user = request.getParameter("txtUser");
-            String passwors = request.getParameter("txtPassword");
-            
+            String passwors = request.getParameter("txtPassword");              
            
-
             empleado = empleadoDAO.Validar(user, passwors);
+            
+            System.out.println("Nombrea : " + empleado.getNombre());
+            System.out.println(empleado.getUsuario());
 
             if (empleado.getUsuario() != null)
             {
+                 request.setAttribute("usuario", empleado);
                 request.getRequestDispatcher("Controlador?accion=principal").forward(request, response);
             }
             else
