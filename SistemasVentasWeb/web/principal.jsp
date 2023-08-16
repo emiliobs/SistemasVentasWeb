@@ -23,16 +23,16 @@
                             <a class="btn btn-outline-light" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="#">Productos</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Producto" target="myframe">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="#">Empleado</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Empleado"   target="myframe">Empleado</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="#">Clientes</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Clientes" target="myframe">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="#">Nueva Venta</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=NuevaVenta" target="myframe">Nueva Venta</a>
                         </li>
                     </ul>
                 </div>                
@@ -49,14 +49,16 @@
                         <div class="dropdown-divider"></div>
                         <form action="Validar" method="post">
                             <button name="accion" value="Salir" class="dropdown-item">Salir</button>
-                        </form>
-                            
-                        
-                       
+                        </form>               
                     </div>
-
                 </div>
         </nav>
+
+        <div class="m-4" style="height: 550px;">
+            <iframe name="myframe" style="height: 100%; width: 100%;">
+
+            </iframe>                            
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

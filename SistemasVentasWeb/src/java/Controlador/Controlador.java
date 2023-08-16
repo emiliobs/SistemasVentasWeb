@@ -22,6 +22,18 @@ public class Controlador extends HttpServlet
             case "principal":
                 request.getRequestDispatcher("principal.jsp").forward(request, response);
                 break;
+             case "Clientes":
+                request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+                break;
+                 case "Empleado":
+                request.getRequestDispatcher("Empleados.jsp").forward(request, response);
+                break;
+                 case "Producto":
+                request.getRequestDispatcher("Producto.jsp").forward(request, response);
+                break;
+                 case "NuevaVenta":
+                request.getRequestDispatcher("RegistrarVentas.jsp").forward(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
