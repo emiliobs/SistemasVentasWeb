@@ -88,11 +88,11 @@ public class EmpleadoDAO
             resultSet = preparableStatement.executeQuery();
             while (resultSet.next())
             {
-                empleado.setDni(resultSet.getString(2));
-                empleado.setNombre(resultSet.getString(3));
-                empleado.setTelefono(resultSet.getString(4));
-                empleado.setEstado(resultSet.getString(5));
-                empleado.setUsuario(resultSet.getString(6));
+                empleado.setDni(resultSet.getString(1));
+                empleado.setNombre(resultSet.getString(2));
+                empleado.setTelefono(resultSet.getString(3));
+                empleado.setEstado(resultSet.getString(4));
+                empleado.setUsuario(resultSet.getString(5));
 
             }
         }
@@ -106,18 +106,21 @@ public class EmpleadoDAO
 
     public int Agregar(Empleado empleado)
     {
-        String sql = "Insert Into empleado (Dni, Nombre, Telefono, Estado, User) Values(?,?,?,?,?)";
+        String sql = "Insert Into empleado (Dni, Nombres, Telefono, Estado, User) Values(?,?,?,?,?)";
 
         try
         {
             connection = conexion.Conexion();
             preparableStatement = connection.prepareStatement(sql);
+            
             preparableStatement.setString(1, empleado.getDni());
             preparableStatement.setString(2, empleado.getNombre());
             preparableStatement.setString(3, empleado.getTelefono());
             preparableStatement.setString(4, empleado.getEstado());
             preparableStatement.setString(5, empleado.getUsuario());
             preparableStatement.executeUpdate();
+            
+            System.out.println("Agregado de forma Correctas!");
         }
         catch (Exception e)
         {

@@ -44,16 +44,30 @@ public class Controlador extends HttpServlet
                     List lista = empleadoDAO.Listar();
 
                     request.setAttribute("empleados", lista);
-                  
+
                     break;
                 case "Agregar":
-
+                    String dni = request.getParameter("txtDni");
+                    String nombres = request.getParameter("txtNombres");
+                    String telefono = request.getParameter("txtTelefono");
+                    String estado = request.getParameter("txtEstado");
+                    String  usuario = request.getParameter("txtUsuario");
+                    empleado.setDni(dni);
+                    empleado.setNombre(nombres);
+                    empleado.setTelefono(telefono);
+                    empleado.setEstado(estado);
+                    empleado.setUsuario(usuario);      
+                    
+                    empleadoDAO.Agregar(empleado);
+                    request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
-
+                         
+                         request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
                     break;
                 case "Delete":
-
+                       
+                       request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
                     break;
                 default:
                     throw new AssertionError();

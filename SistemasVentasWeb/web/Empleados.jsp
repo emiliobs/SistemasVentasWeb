@@ -15,7 +15,7 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form action="Controlador?menu=Empleados" method="post">
                             <div class="form-group">
                                 <label for="dni" class="form-label">Dni</label>
                                 <input type="text" id="dni" name="txtDni" class="form-control"/>
@@ -53,19 +53,23 @@
                             <th>Estado</th>
                             <th>User</th>
                             <th>Acciones</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
-                       <c:forEach var="empleado" items="${empleados}">
+                        <c:forEach var="empleado" items="${empleados}">
                             <tr>
-                                <td>${empleado.getId()}</td>
                                 <td>${empleado.getDni()}</td>
                                 <td>${empleado.getNombre()}</td>
                                 <td>${empleado.getTelefono()}</td>
+                                <td>${empleado.getEstado()}</td>
                                 <td>${empleado.getUsuario()}</td>
                                 <td>
-                                    <a>Editar</a>
-                                    <a>Eliminar</a>
+                                    <form action="Controlador?menu=Empleados" method="post">
+                                          <button type="submit" name="accion" value="Editar" class="btn btn-warning">Editar</button>
+                                    <button type="submit" name="accion" value="Delete" class="btn btn-danger">Eliminar</button>    
+                                    </form>
+                                                                 
                                 </td>
                             </tr>
                         </c:forEach>
