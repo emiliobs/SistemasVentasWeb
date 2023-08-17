@@ -9,9 +9,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-        <title>Bootstrap Example</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-        <title>JSP Page</title>
+        <title>Principal</title>
     </head>
     <body>
 
@@ -20,19 +19,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" aria-current="page" href="#">Home</a>
+                            <a class="btn btn-outline-light" aria-current="page" href="Controlador?menu=Index"style="margin-left: 10px; border: none; color: black;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Producto" target="myframe">Productos</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Producto" target="myframe">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Empleado"   target="myframe">Empleado</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Empleado&accion=Listar"   target="myframe">Empleado</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=Clientes" target="myframe">Clientes</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Clientes" target="myframe">Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none;" href="Controlador?accion=NuevaVenta" target="myframe">Nueva Venta</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=NuevaVenta" target="myframe">Nueva Venta</a>
                         </li>
                     </ul>
                 </div>                
@@ -54,8 +53,8 @@
                 </div>
         </nav>
 
-        <div class="m-4" style="height: 550px;">
-            <iframe name="myframe" style="height: 100%; width: 100%;">
+        <div class="m-4" style="height: 550px; ">
+            <iframe  name="myframe" style="height: 100%; width: 100%; border: none;">
 
             </iframe>                            
         </div>

@@ -1,53 +1,87 @@
-
 package Controlador;
 
+import Modelo.Empleado;
+import Modelo.EmpleadoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class Controlador extends HttpServlet
 {
 
-    
+    Empleado empleado = new Empleado();
+    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    List<Empleado> lista = new ArrayList<>();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
-        switch (accion)
+
+        if (menu.equals("Index"))
         {
-            case "principal":
-                request.getRequestDispatcher("principal.jsp").forward(request, response);
-                break;
-             case "Clientes":
-                request.getRequestDispatcher("Clientes.jsp").forward(request, response);
-                break;
-                 case "Empleado":
-                request.getRequestDispatcher("Empleados.jsp").forward(request, response);
-                break;
-                 case "Producto":
-                request.getRequestDispatcher("Producto.jsp").forward(request, response);
-                break;
-                 case "NuevaVenta":
-                request.getRequestDispatcher("RegistrarVentas.jsp").forward(request, response);
-                break;
-            default:
-                throw new AssertionError();
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+
+        if (menu.equals("Principal"))
+        {
+
+            request.getRequestDispatcher("principal.jsp").forward(request, response);
+        }
+
+        if (menu.equals("Empleado"))
+        {
+            switch (accion)
+            {
+                case "Listar":
+                    lista = empleadoDAO.Listar();
+
+                    for (Empleado empleado1 : lista)
+                    {
+                        System.out.println(empleado1.getNombre());
+                    }
+
+                    request.setAttribute("empleados", lista);
+                    break;
+                case "Agregar":
+
+                    break;
+                case "Editar":
+
+                    break;
+                case "Delete":
+
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            
+            request.getRequestDispatcher("Empleados.jsp").forward(request, response);
+        }
+
+        if (menu.equals("Clientes"))
+        {
+            request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+        }
+
+        if (menu.equals("Producto"))
+        {
+            request.getRequestDispatcher("Producto.jsp").forward(request, response);
+        }
+
+        if (menu.equals("NuevaVenta"))
+        {
+            request.getRequestDispatcher("RegistrarVentas.jsp").forward(request, response);
+        }
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -55,14 +89,6 @@ public class Controlador extends HttpServlet
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -70,11 +96,6 @@ public class Controlador extends HttpServlet
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo()
     {
