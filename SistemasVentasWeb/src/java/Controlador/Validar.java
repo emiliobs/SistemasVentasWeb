@@ -22,20 +22,7 @@ public class Validar extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter())
-        {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Validar</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Validar at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+      
     }
 
     @Override
@@ -50,6 +37,7 @@ public class Validar extends HttpServlet
             throws ServletException, IOException
     {
         String accion = request.getParameter("accion");
+        
         if (accion.equalsIgnoreCase("Ingresar"))
         {
             String user = request.getParameter("txtUser");

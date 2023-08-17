@@ -17,6 +17,7 @@ public class Controlador extends HttpServlet
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
     //List<Empleado> lista = new ArrayList<>();
+    int IdEmpleado;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -51,29 +52,52 @@ public class Controlador extends HttpServlet
                     String nombres = request.getParameter("txtNombres");
                     String telefono = request.getParameter("txtTelefono");
                     String estado = request.getParameter("txtEstado");
-                    String  usuario = request.getParameter("txtUsuario");
+                    String usuario = request.getParameter("txtUsuario");
                     empleado.setDni(dni);
                     empleado.setNombre(nombres);
                     empleado.setTelefono(telefono);
                     empleado.setEstado(estado);
-                    empleado.setUsuario(usuario);      
-                    
+                    empleado.setUsuario(usuario);
+
                     empleadoDAO.Agregar(empleado);
                     request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
                     break;
                 case "Editar":
-                         
-                         request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
+                    IdEmpleado = Integer.parseInt(request.getParameter("IdUser"));
+                    Empleado empl = new EmpleadoDAO().ListarPorId(IdEmpleado);
+                    request.setAttribute("empl", empl);
+                    
+                   
+                   //request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
+
+                    break;
+                case "Actualizar":
+                     String dni1 = request.getParameter("txtDni");
+                    String nombres1 = request.getParameter("txtNombres");
+                    String telefono1 = request.getParameter("txtTelefono");
+                    String estado1 = request.getParameter("txtEstado");
+                    String usuario1 = request.getParameter("txtUsuario");
+                    empleado.setDni(dni1);
+                    empleado.setNombre(nombres1);
+                    empleado.setTelefono(telefono1);
+                    empleado.setEstado(estado1);
+                    empleado.setUsuario(usuario1);
+                    empleado.setId(IdEmpleado);
+                    
+                    empleadoDAO.Actualizar(empleado);
+                   request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
                     break;
                 case "Delete":
-                       
-                       request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
+                      IdEmpleado = Integer.parseInt(request.getParameter("IdUser"));
+                      empleadoDAO.Delete(IdEmpleado);
+                      // request.getRequestDispatcher("Controlador?menu=Empleados&accion=Listar").forward(request, response);
+
                     break;
                 default:
                     throw new AssertionError();
             }
 
-            request.getRequestDispatcher("Empleados.jsp").forward(request, response);
+           request.getRequestDispatcher("Empleados.jsp").forward(request, response);
 
         }
 

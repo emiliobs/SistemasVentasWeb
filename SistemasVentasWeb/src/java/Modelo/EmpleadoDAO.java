@@ -88,11 +88,11 @@ public class EmpleadoDAO
             resultSet = preparableStatement.executeQuery();
             while (resultSet.next())
             {
-                empleado.setDni(resultSet.getString(1));
-                empleado.setNombre(resultSet.getString(2));
-                empleado.setTelefono(resultSet.getString(3));
-                empleado.setEstado(resultSet.getString(4));
-                empleado.setUsuario(resultSet.getString(5));
+                empleado.setDni(resultSet.getString(2));
+                empleado.setNombre(resultSet.getString(3));
+                empleado.setTelefono(resultSet.getString(4));
+                empleado.setEstado(resultSet.getString(5));
+                empleado.setUsuario(resultSet.getString(6));
 
             }
         }
@@ -132,7 +132,7 @@ public class EmpleadoDAO
 
     public int Actualizar(Empleado empleado)
     {
-        String sql = "Update Set empleado Dni=?, Nombre=?, Telefono=?, Estado=?, User=? Where IdEmpleado=?";
+        String sql = "Update  empleado Set Dni=?, Nombres=?, Telefono=?, Estado=?, User=? Where IdEmpleado=?";
 
         try
         {
