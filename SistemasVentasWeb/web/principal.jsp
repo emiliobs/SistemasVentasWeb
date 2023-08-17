@@ -25,7 +25,7 @@
                             <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Producto" target="myframe">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Empleado&accion=Listar"   target="myframe">Empleado</a>
+                            <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Empleados&accion=Listar"   target="myframe">Empleado</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-light" style="margin-left: 10px; border: none; color: black;" href="Controlador?menu=Clientes" target="myframe">Clientes</a>

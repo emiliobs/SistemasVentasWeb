@@ -16,7 +16,7 @@ public class Controlador extends HttpServlet
 
     Empleado empleado = new Empleado();
     EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-    List<Empleado> lista = new ArrayList<>();
+    //List<Empleado> lista = new ArrayList<>();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -35,19 +35,16 @@ public class Controlador extends HttpServlet
             request.getRequestDispatcher("principal.jsp").forward(request, response);
         }
 
-        if (menu.equals("Empleado"))
+        if (menu.equals("Empleados"))
         {
             switch (accion)
             {
                 case "Listar":
-                    lista = empleadoDAO.Listar();
 
-                    for (Empleado empleado1 : lista)
-                    {
-                        System.out.println(empleado1.getNombre());
-                    }
+                    List lista = empleadoDAO.Listar();
 
                     request.setAttribute("empleados", lista);
+                  
                     break;
                 case "Agregar":
 
@@ -61,8 +58,9 @@ public class Controlador extends HttpServlet
                 default:
                     throw new AssertionError();
             }
-            
+
             request.getRequestDispatcher("Empleados.jsp").forward(request, response);
+
         }
 
         if (menu.equals("Clientes"))

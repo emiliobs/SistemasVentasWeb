@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,19 +56,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="empleado" items="${empleados}">
+                       <c:forEach var="empleado" items="${empleados}">
                             <tr>
                                 <td>${empleado.getId()}</td>
                                 <td>${empleado.getDni()}</td>
                                 <td>${empleado.getNombre()}</td>
                                 <td>${empleado.getTelefono()}</td>
-                                <td>${empleado.getUser()}</td>
+                                <td>${empleado.getUsuario()}</td>
                                 <td>
                                     <a>Editar</a>
                                     <a>Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
+
+
 
                     </tbody>
                 </table>
